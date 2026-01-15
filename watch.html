@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch - DSR Tube</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>DSR<span>Tube</span></h1>
+  <input id="searchInput" type="text" placeholder="Search videos..." />
+</header>
+
+<div class="player-box">
+  <iframe id="player" allowfullscreen allow="autoplay"></iframe>
+</div>
+
+<main id="videos" class="video-list"></main>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const videoId = params.get("v");
+  if (videoId) {
+    document.getElementById("player").src =
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`;
+  }
+</script>
+
+<script src="./app.js"></script>
+</body>
+</html>
